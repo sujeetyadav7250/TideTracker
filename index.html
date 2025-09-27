@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TideTracker - Coastal Tide Information</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>TideTracker</h1>
+            <p class="subtitle">Your Coastal Companion for Tide Information</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div id="loading" class="loading">
+            <p>Detecting your location and fetching tide data...</p>
+        </div>
+        
+        <div id="error" class="error" style="display: none;">
+            <p id="errorMessage"></p>
+        </div>
+        
+        <div id="content" style="display: none;">
+            <div class="main-content">
+                <div class="card">
+                    <h2>Current Location</h2>
+                    <div id="locationInfo">
+                        <p><strong>Nearest Coast:</strong> <span id="coastName">Loading...</span></p>
+                        <p><strong>Coordinates:</strong> <span id="coordinates">Loading...</span></p>
+                        <p><strong>Current Time:</strong> <span id="currentTime">Loading...</span></p>
+                    </div>
+                    
+                    <div class="tide-info">
+                        <div class="tide-event high">
+                            <div class="tide-icon">🌊</div>
+                            <h3>Next High Tide</h3>
+                            <p id="nextHighTide">Loading...</p>
+                            <p id="highTideCountdown"></p>
+                        </div>
+                        <div class="tide-event low">
+                            <div class="tide-icon">🌅</div>
+                            <h3>Next Low Tide</h3>
+                            <p id="nextLowTide">Loading...</p>
+                            <p id="lowTideCountdown"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="controls">
+                        <button id="refreshBtn">Refresh Data</button>
+                        <button id="favoriteBtn">Add to Favorites</button>
+                        <button id="clearStorageBtn">Clear Storage</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>Tide Timeline</h2>
+                    <canvas id="tideChart"></canvas>
+                </div>
+                
+                <div class="card">
+                    <h2>Coastal Map</h2>
+                    <div id="map"></div>
+                </div>
+                
+                <div class="card">
+                    <h2>Moon Phase</h2>
+                    <div class="moon-phase">
+                        <div class="moon-icon" id="moonIcon">🌑</div>
+                        <p id="moonPhase">Loading...</p>
+                        <p id="moonIllumination">Loading...</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>Activity Suggestions</h2>
+                    <div id="activitySuggestions" class="activity-suggestions">
+                        <!-- Activity suggestions will be populated here -->
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>Favorite Locations</h2>
+                    <div id="favoriteLocations" class="favorite-locations">
+                        <!-- Favorite locations will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>TideTracker &copy; 2025 | Data provided by WorldTides API</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data.min.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/tide-chart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
